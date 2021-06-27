@@ -19,7 +19,7 @@ ul{
   font-family:'Roboto', sans-serif;
   font-size: 16px;
 }
-.fa {
+i.fab,i.far {
   padding: 20px;
   font-size: 80px;
   width: 50px;
