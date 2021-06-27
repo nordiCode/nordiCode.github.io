@@ -22,11 +22,11 @@ ul{
 i.fab,i.far {
   padding: 20px;
   font-size: 80px;
-  width: 50px;
+  width: 80px;
   text-align: center;
   text-decoration: none;
   color:grey;
 }
-.fa:hover {
+i.fab,i.far:hover {
   opacity: 0.7;
 }
