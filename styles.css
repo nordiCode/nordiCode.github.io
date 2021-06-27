@@ -1,9 +1,15 @@
 h1{
   font-family: 'Big Shoulders Stencil Display', cursive;
-  color:grey;
-  font-size: 48px;
+  color:black;
+  font-size: 64px;
   text-shadow: 4px 4px 4px ;
+  padding:10px;
 }
 h2{
   font-family: 'Montserrat',sans-serif;
+  padding: 10px;
+}
+p{
+  font-family:'Roboto', sans-serif;
+  padding:10px;
 }
