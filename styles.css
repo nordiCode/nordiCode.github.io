@@ -19,3 +19,14 @@ ul{
   font-family:'Roboto', sans-serif;
   font-size: 16px;
 }
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  color:grey;
+}
+.fa:hover {
+  opacity: 0.7;
+}
