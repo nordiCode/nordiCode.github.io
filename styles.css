@@ -1,4 +1,9 @@
 h1{
   font-family: 'Big Shoulders Stencil Display', cursive;
-  color:red;
+  color:grey;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px ;
+}
+h2{
+  font-family: 'Montserrat',sans-serif;
 }
