@@ -15,6 +15,9 @@ p{
   font-family:'Montserrat', sans-serif;
   padding:12px;
 }
+body{
+  background-color: #0000FF;
+}
 ul{
   font-family:'Roboto', sans-serif;
   font-size: 16px;
