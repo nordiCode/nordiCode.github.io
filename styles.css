@@ -30,8 +30,8 @@ i.fab,i.far {
   width: 40px;
   text-align: center;
   text-decoration: none;
-  
+  background-color: #2B3856;
 }
 i.fab,i.far:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
