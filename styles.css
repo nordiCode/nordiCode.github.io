@@ -3,6 +3,8 @@ h1{
   font-family: 'Gemunu Libre', sans-serif;
   font-size:  120px;
   padding:10px;
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
 }
 h2{
   font-family: 'Roboto',sans-serif;
@@ -22,11 +24,6 @@ body{
 ul{
   font-family:'Roboto', sans-serif;
   font-size: 16px;
-}
-.white-text-with-blue-shadow {
-  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
-  color: white;
-  font: 1.5em Georgia, serif;
 }
 
 i.fab,i.far {
