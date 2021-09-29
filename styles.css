@@ -23,6 +23,12 @@ ul{
   font-family:'Roboto', sans-serif;
   font-size: 16px;
 }
+.white-text-with-blue-shadow {
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 1.5em Georgia, serif;
+}
+
 i.fab,i.far {
   padding: 20px;
   margin-right:30px;
