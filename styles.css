@@ -19,7 +19,7 @@ p{
   padding:12px;
 }
 body{
-  background-color: #2B3856;
+  background-color: white;
 }
 ul{
   font-family:'Roboto', sans-serif;
@@ -33,5 +33,5 @@ i.fab,i.far {
   width: 40px;
   text-align: center;
   text-decoration: none;
-  background-color: white;
+  background-color: #2B3856;
 }
