@@ -1,146 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title></title>
-    
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="robots" content="noodp"/>
-
-    <link rel="stylesheet" href="https://example.com/style.css">
-    <link rel="stylesheet" href="https://example.com/color/pink.css">
-
-        <link rel="stylesheet" href="https://example.com/color/background_blue.css">
-    
-    <link rel="stylesheet" href="https://example.com/font-hack-subset.css">
-
+<html>
+    <head>
+        <title>Zola</title>
     </head>
-
-<body class="">
-<div class="container">
-    
-    <header class="header">
-        <div class="header__inner">
-            <div class="header__logo">
-                    
-                <a href="https://example.com" style="text-decoration: none;">
-                    <div class="logo">
-                      
-                            Grant&#x27;s Blog
-                        
-                    </div>
-                </a>
-            </div>
+    <body>
+        <div class="container">
+            <h1>Welcome to Zola!</h1>
+            <p>
+                You're seeing this page because we couldn't find a template to render.
+            </p>
+            <p>
+                To modify this page, create a <b>index.html</b> file in the templates directory or
+                <a href="https://www.getzola.org/documentation/themes/installing-and-using-themes/" target="_blank">install a theme</a>.
+                <br>
+                You can find what variables are available in this template in the <a href="https:&#x2F;&#x2F;www.getzola.org&#x2F;documentation&#x2F;templates&#x2F;pages-sections&#x2F;#section-variables" target="_blank">documentation</a>.
+            </p>
         </div>
-
-        
-        
-                <nav class="menu">
-            <ul class="menu__inner">
-                <li class="active"><a href="https://example.com">blog</a></li>
-            
-                <li><a href="https://example.com/tags">tags</a></li>
-            
-                <li><a href="https://example.com/archive">archive</a></li>
-            
-                <li><a href="https://example.com/about">about me</a></li>
-            
-                <li><a href="https://github.com/nordiCode" target="_blank" rel="noopener noreferrer">github</a></li>
-            </ul>
-        </nav>
-    
-    
-        
-    </header>
-    
-
-    <div class="content">
-        
-        <div class="posts">
-                <div class="post on-list">
-                    
-    <h1 class="post-title"><a href="https://example.com/aoc-2020-day-one/">AOC 2022 Day One</a></h1>
-    <div class="post-meta-inline">
-        
-    <span class="post-date">
-            2022-07-15
-        </span>
-
-    </div>
-
-    
-        <span class="post-tags-inline">
-                :: tags:&nbsp;
-                <a class="post-tag" href="https://example.com/tags/aoc/">#AOC</a>&nbsp;
-                <a class="post-tag" href="https://example.com/tags/haskell/">#haskell</a></span>
-    
-
-                    
-        <div class="post-content">
-            <pre data-lang="haskell" style="background-color:#2b303b;color:#c0c5ce;" class="language-haskell "><code class="language-haskell" data-lang="haskell"><span style="color:#b48ead;">import </span><span>Data.List (</span><span style="color:#8fa1b3;">groupBy</span><span>, </span><span style="color:#8fa1b3;">sort</span><span>)
-</span><span style="color:#b48ead;">import </span><span>System.IO
-</span><span>
-</span><span style="color:#8fa1b3;">partOne </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt; Int
-</span><span>partOne = maximum . map sum . intArrays
-</span><span>
-</span><span style="color:#8fa1b3;">partTwo </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt; Int
-</span><span>partTwo = sum . take </span><span style="color:#d08770;">3 </span><span>. reverse . sort . map sum . intArrays
-</span><span>
-</span><span style="color:#8fa1b3;">cleanContents </span><span style="color:#b48ead;">:: String -&gt;</span><span> [[[</span><span style="color:#b48ead;">Char</span><span>]]]
-</span><span>cleanContents = filter (not . null) . map (filter (/= &quot;&quot;)) . groupBy (\x y -&gt; x /= &quot;&quot; &amp;&amp; y /= &quot;&quot;) . lines
-</span><span>
-</span><span style="color:#8fa1b3;">intArrays </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt;</span><span> [[</span><span style="color:#b48ead;">Int</span><span>]]
-</span><span>intArrays = map readInt
-</span><span>
-</span><span style="color:#8fa1b3;">readInt </span><span style="color:#b48ead;">::</span><span> [</span><span style="color:#b48ead;">String</span><span>] </span><span style="color:#b48ead;">-&gt;</span><span> [</span><span style="color:#b48ead;">Int</span><span>]
-</span><span>readInt = map read
-</span><span>
-</span><span style="color:#8fa1b3;">main </span><span style="color:#b48ead;">:: IO </span><span>()
-</span><span>main = </span><span style="color:#b48ead;">do
-</span><span>  contents &lt;- readFile &quot;</span><span style="color:#a3be8c;">day_one_input.txt</span><span>&quot;
-</span><span>  </span><span style="color:#b48ead;">let</span><span> groups = cleanContents $ contents
-</span><span>  </span><span style="color:#b48ead;">let</span><span> maxCal = partOne groups
-</span><span>  </span><span style="color:#b48ead;">let</span><span> maxCalTopThree = partTwo groups
-</span><span>  print $ &quot;</span><span style="color:#a3be8c;">Solution Part One </span><span>&quot; &lt;&gt; show maxCal
-</span><span>  print $ &quot;</span><span style="color:#a3be8c;">Solution Part Two </span><span>&quot; &lt;&gt; show maxCalTopThree
-</span></code></pre>
-
-        </div>
-        <div>
-            <!-- &#xFE0E; -- force text style - some devices render this as emoji -->
-            <a class="read-more button" href="https://example.com/aoc-2020-day-one/">
-                <span class="button__text">Read more</span>&nbsp;
-                <span class="button__icon">&#8617;&#xFE0E;</span>
-            </a>
-        </div>
-    
-
-                </div>
-            <div class="pagination">
-                <div class="pagination__buttons"></div>
-            </div>
-        </div>
-        
-    </div>
-
-    
-    <footer class="footer">
-        <div class="footer__inner">
-                <div class="copyright">
-                        <span>© 
-    2023
- Grant Hihn</span>
-                    <span class="copyright-theme">
-                        <span class="copyright-theme-sep">:: </span>
-                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
-                    </span>
-                </div>
-            </div>
-    </footer>
-    
-
-</div>
-</body>
-
+        <footer>
+            <a href="https://www.getzola.org/documentation/getting-started/cli-usage/" target="_blank">Get started with Zola</a>
+        </footer>
+        <style>
+            html {
+                line-height: 1.5;
+            }
+            h1 {
+                margin-bottom: 2rem;
+            }
+            .container {
+                font-family: "sans-serif";
+                text-align: center;
+                margin-top: 20vh;
+                padding: 2rem;
+                background: #e9e9e9;
+            }
+            footer {
+                position: fixed;
+                width: 100%;
+                bottom: 1rem;
+                text-align: center;
+            }
+        </style>
+    </body>
 </html>
