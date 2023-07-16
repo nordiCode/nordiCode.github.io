@@ -6,7 +6,7 @@ tags = ["AOC","haskell"]
 
 +++
 
-In order to deepen my knowledge of Haskell, I have decided to challenge myself by attempting Advent of Code problems. Although my solutions may not yet be idiomatic, I am confident that they will improve as I continue to learn and gain more experience.
+In order to deepen my knowledge of Haskell, I have decided to challenge myself by attempting Advent of Code problems. My solutions are not yet idiomatic but hopefully in time they will grow to be.
 
 ### 2022 Day One
 
