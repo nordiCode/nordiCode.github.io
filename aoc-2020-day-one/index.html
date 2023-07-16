@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="robots" content="noodp"/>
+
+    <link rel="stylesheet" href="https://nordicode.github.io/style.css">
+    <link rel="stylesheet" href="https://nordicode.github.io/color/pink.css">
+
+        <link rel="stylesheet" href="https://nordicode.github.io/color/background_blue.css">
+    
+    <link rel="stylesheet" href="https://nordicode.github.io/font-hack-subset.css">
+
+    </head>
+
+<body class="">
+<div class="container">
+    
+    <header class="header">
+        <div class="header__inner">
+            <div class="header__logo">
+                    
+                <a href="https://nordicode.github.io" style="text-decoration: none;">
+                    <div class="logo">
+                      
+                            GRANT HIHN
+                        
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        
+        
+                <nav class="menu">
+            <ul class="menu__inner">
+                <li class="active"><a href="https://nordicode.github.io">blog</a></li>
+            
+                <li><a href="https://nordicode.github.io/tags">tags</a></li>
+            
+                <li><a href="https://nordicode.github.io/archive">archive</a></li>
+            
+                <li><a href="https://nordicode.github.io/about">about me</a></li>
+            
+                <li><a href="https://github.com/nordiCode" target="_blank" rel="noopener noreferrer">github</a></li>
+            </ul>
+        </nav>
+    
+    
+        
+    </header>
+    
+
+    <div class="content">
+        
+    <div class="post">
+        
+    <h1 class="post-title"><a href="https://nordicode.github.io/aoc-2020-day-one/">AOC 2022</a></h1>
+    <div class="post-meta-inline">
+        
+    <span class="post-date">
+            2022-07-15
+        </span>
+
+    </div>
+
+    
+        <span class="post-tags-inline">
+                :: tags:&nbsp;
+                <a class="post-tag" href="https://nordicode.github.io/tags/aoc/">#AOC</a>&nbsp;
+                <a class="post-tag" href="https://nordicode.github.io/tags/haskell/">#haskell</a></span>
+    
+
+        
+        <div class="post-content">
+            <p>In order to deepen my knowledge of Haskell, I have decided to challenge myself by attempting Advent of Code problems. My solutions are not yet idiomatic but hopefully in time they will grow to be.</p>
+<span id="continue-reading"></span><h3 id="2022-day-one">2022 Day One</h3>
+<pre data-lang="haskell" style="background-color:#2b303b;color:#c0c5ce;" class="language-haskell "><code class="language-haskell" data-lang="haskell"><span style="color:#b48ead;">import </span><span>Data.List (</span><span style="color:#8fa1b3;">groupBy</span><span>, </span><span style="color:#8fa1b3;">sort</span><span>)
+</span><span style="color:#b48ead;">import </span><span>System.IO
+</span><span>
+</span><span style="color:#8fa1b3;">partOne </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt; Int
+</span><span>partOne = maximum . map sum . intArrays
+</span><span>
+</span><span style="color:#8fa1b3;">partTwo </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt; Int
+</span><span>partTwo = sum . take </span><span style="color:#d08770;">3 </span><span>. reverse . sort . map sum . intArrays
+</span><span>
+</span><span style="color:#8fa1b3;">cleanContents </span><span style="color:#b48ead;">:: String -&gt;</span><span> [[[</span><span style="color:#b48ead;">Char</span><span>]]]
+</span><span>cleanContents = filter (not . null) . map (filter (/= &quot;&quot;)) . groupBy (\x y -&gt; x /= &quot;&quot; &amp;&amp; y /= &quot;&quot;) . lines
+</span><span>
+</span><span style="color:#8fa1b3;">intArrays </span><span style="color:#b48ead;">::</span><span> [[</span><span style="color:#b48ead;">String</span><span>]] </span><span style="color:#b48ead;">-&gt;</span><span> [[</span><span style="color:#b48ead;">Int</span><span>]]
+</span><span>intArrays = map readInt
+</span><span>
+</span><span style="color:#8fa1b3;">readInt </span><span style="color:#b48ead;">::</span><span> [</span><span style="color:#b48ead;">String</span><span>] </span><span style="color:#b48ead;">-&gt;</span><span> [</span><span style="color:#b48ead;">Int</span><span>]
+</span><span>readInt = map read
+</span><span>
+</span><span style="color:#8fa1b3;">main </span><span style="color:#b48ead;">:: IO </span><span>()
+</span><span>main = </span><span style="color:#b48ead;">do
+</span><span>  contents &lt;- readFile &quot;</span><span style="color:#a3be8c;">day_one_input.txt</span><span>&quot;
+</span><span>  </span><span style="color:#b48ead;">let</span><span> groups = cleanContents $ contents
+</span><span>  </span><span style="color:#b48ead;">let</span><span> maxCal = partOne groups
+</span><span>  </span><span style="color:#b48ead;">let</span><span> maxCalTopThree = partTwo groups
+</span><span>  print $ &quot;</span><span style="color:#a3be8c;">Solution Part One </span><span>&quot; &lt;&gt; show maxCal
+</span><span>  print $ &quot;</span><span style="color:#a3be8c;">Solution Part Two </span><span>&quot; &lt;&gt; show maxCalTopThree
+</span></code></pre>
+<h3 id="2022-day-two">2022 Day Two</h3>
+<pre data-lang="haskell" style="background-color:#2b303b;color:#c0c5ce;" class="language-haskell "><code class="language-haskell" data-lang="haskell"><span style="color:#b48ead;">data </span><span style="color:#d08770;">Piece </span><span>= </span><span style="color:#d08770;">Rock </span><span>| </span><span style="color:#d08770;">Paper </span><span>| </span><span style="color:#d08770;">Scissors
+</span><span>  </span><span style="color:#b48ead;">deriving</span><span> (</span><span style="color:#a3be8c;">Show</span><span>, </span><span style="color:#a3be8c;">Eq</span><span>, </span><span style="color:#a3be8c;">Enum</span><span>)
+</span><span>
+</span><span style="color:#8fa1b3;">outCome </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt; Int
+</span><span>outCome (x, y)
+</span><span>  | y == </span><span style="color:#d08770;">Rock</span><span> &amp;&amp; x == </span><span style="color:#d08770;">Scissors </span><span>|| y == </span><span style="color:#d08770;">Paper</span><span> &amp;&amp; x == </span><span style="color:#d08770;">Rock </span><span>|| y == </span><span style="color:#d08770;">Scissors</span><span> &amp;&amp; x == </span><span style="color:#d08770;">Paper </span><span>= </span><span style="color:#d08770;">6
+</span><span>  | x == y = </span><span style="color:#d08770;">3
+</span><span>  | otherwise = </span><span style="color:#d08770;">0
+</span><span>
+</span><span style="color:#8fa1b3;">changeSecond </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>)
+</span><span>changeSecond (m, n)
+</span><span>  | n == </span><span style="color:#d08770;">Scissors </span><span>= swapWin (m, n)
+</span><span>  | n == </span><span style="color:#d08770;">Paper </span><span>= swapDraw (m, n)
+</span><span>  | n == </span><span style="color:#d08770;">Rock </span><span>= swapLose (m, n)
+</span><span>
+</span><span style="color:#8fa1b3;">swapWin </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>)
+</span><span>swapWin (m, _)
+</span><span>  | m == </span><span style="color:#d08770;">Rock </span><span>= (m, </span><span style="color:#d08770;">Paper</span><span>)
+</span><span>  | m == </span><span style="color:#d08770;">Paper </span><span>= (m, </span><span style="color:#d08770;">Scissors</span><span>)
+</span><span>  | otherwise = (m, </span><span style="color:#d08770;">Rock</span><span>)
+</span><span>
+</span><span style="color:#8fa1b3;">swapDraw </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>)
+</span><span>swapDraw (m, _) = (m, m)
+</span><span>
+</span><span style="color:#8fa1b3;">swapLose </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>)
+</span><span>swapLose (m, _)
+</span><span>  | m == </span><span style="color:#d08770;">Rock </span><span>= (m, </span><span style="color:#d08770;">Scissors</span><span>)
+</span><span>  | m == </span><span style="color:#d08770;">Paper </span><span>= (m, </span><span style="color:#d08770;">Rock</span><span>)
+</span><span>  | otherwise = (m, </span><span style="color:#d08770;">Paper</span><span>)
+</span><span>
+</span><span style="color:#8fa1b3;">sumResult </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>) </span><span style="color:#b48ead;">-&gt; Int
+</span><span>sumResult (x, y) = fromEnum y + </span><span style="color:#d08770;">1 </span><span>+ outCome (x, y)
+</span><span>
+</span><span style="color:#65737e;">-- need to not use Head/Tail
+</span><span style="color:#8fa1b3;">mapTuple </span><span style="color:#b48ead;">::</span><span> [</span><span style="color:#bf616a;">b</span><span>] </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#bf616a;">b</span><span>, </span><span style="color:#bf616a;">b</span><span>)
+</span><span>mapTuple x = (head x, last x)
+</span><span>
+</span><span style="color:#8fa1b3;">tuplePiece </span><span style="color:#b48ead;">::</span><span> (</span><span style="color:#b48ead;">Char</span><span>, </span><span style="color:#b48ead;">Char</span><span>) </span><span style="color:#b48ead;">-&gt;</span><span> (</span><span style="color:#b48ead;">Piece</span><span>, </span><span style="color:#b48ead;">Piece</span><span>)
+</span><span>tuplePiece (m, n) = (mapPiece m, mapPiece n)
+</span><span>
+</span><span style="color:#8fa1b3;">mapPiece </span><span style="color:#b48ead;">:: Char -&gt; Piece
+</span><span>mapPiece x
+</span><span>  | x == &#39;</span><span style="color:#a3be8c;">A</span><span>&#39; || x == &#39;</span><span style="color:#a3be8c;">X</span><span>&#39; = </span><span style="color:#d08770;">Rock
+</span><span>  | x == &#39;</span><span style="color:#a3be8c;">B</span><span>&#39; || x == &#39;</span><span style="color:#a3be8c;">Y</span><span>&#39; = </span><span style="color:#d08770;">Paper
+</span><span>  | x == &#39;</span><span style="color:#a3be8c;">C</span><span>&#39; || x == &#39;</span><span style="color:#a3be8c;">Z</span><span>&#39; = </span><span style="color:#d08770;">Scissors
+</span><span>
+</span><span style="color:#8fa1b3;">main </span><span style="color:#b48ead;">:: IO </span><span>()
+</span><span>main = </span><span style="color:#b48ead;">do
+</span><span>  contents &lt;- readFile &quot;</span><span style="color:#a3be8c;">day_two.txt</span><span>&quot;
+</span><span>  </span><span style="color:#65737e;">-- print $ sum . map sumResult $ map changeSecond $ map mapTuple $ lines contents
+</span><span>  print $ sum . map (sumResult . tuplePiece . mapTuple) $ lines contents
+</span></code></pre>
+<p><a href="https://adventofcode.com/">Advent of Code</a></p>
+
+        </div>
+
+        
+    </div>
+
+    </div>
+
+    
+    <footer class="footer">
+        <div class="footer__inner">
+                <div class="copyright">
+                        <span>© 
+    2023
+ Grant Hihn</span>
+                    <span class="copyright-theme">
+                        <span class="copyright-theme-sep">:: </span>
+                        Theme: <a href="https://github.com/pawroman/zola-theme-terminimal/">Terminimal</a> by pawroman
+                    </span>
+                </div>
+            </div>
+    </footer>
+    
+
+</div>
+</body>
+
+</html>
