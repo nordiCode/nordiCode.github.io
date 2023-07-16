@@ -7,9 +7,9 @@ tags = ["AOC","haskell"]
 +++
 
 In order to deepen my knowledge of Haskell, I have decided to challenge myself by attempting Advent of Code problems. My solutions are not yet idiomatic but hopefully in time they will grow to be.
+<!-- more -->
 
 ### 2022 Day One
-
 
 ```haskell
 import Data.List (groupBy, sort)
